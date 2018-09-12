@@ -6888,8 +6888,8 @@ html.rd-navbar-fixed-linked .page {
 .rd-navbar-sidebar .rd-navbar-brand img {
   width: auto;
   height: auto;
-  max-width: 200px;
-  max-height: 200px;
+  max-width: 100px;
+  max-height: 100px;
 }
 
 .rd-navbar-sidebar .rd-navbar-nav-wrap {
@@ -7266,8 +7266,8 @@ html.rd-navbar-fixed-linked .page {
 .rd-navbar-classic.rd-navbar-static .rd-navbar-brand img {
   width: auto;
   height: auto;
-  max-width: 200px;
-  max-height: 200px;
+  max-width: 100px;
+  max-height: 100px;
 }
 
 .rd-navbar-classic.rd-navbar-static .rd-navbar-main-element {
