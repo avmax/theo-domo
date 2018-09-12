@@ -1,0 +1,18 @@
+{
+  "author": "avmax.web@gmail.com",
+  "scripts": {
+    "build": "rm -rf ./dist && gulp build",
+    "build:prod": "rm -rf ./dist && NODE_ENV='prod' gulp build",
+    "dev": "rm -rf ./dist && gulp dev"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.24.7",
+    "gulp": "^3.9.1",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-if": "^2.0.2",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-sync": "^0.1.4",
+    "gulp-uglifyjs": "^0.6.2"
+  }
+}
