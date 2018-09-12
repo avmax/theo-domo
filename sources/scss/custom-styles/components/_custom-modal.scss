@@ -1,0 +1,262 @@
+//
+// Custom modal
+// --------------------------------------------------
+.modal {
+  z-index: 9999;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 0 !important;
+  
+  // Extra large ≥1200px
+  @include media-breakpoint-up(xl) {
+    padding: 0; 
+  }
+  
+  h4 {
+    padding-right: 10px;
+  }
+}
+.modal-dialog_custom {
+  min-height: calc(100vh - 20px);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  text-align: left; 
+  max-width: 100%;
+
+  .modal-dialog__inner {
+    position: relative;
+    width: 100%;
+    max-width: 550px;
+    margin-left: auto; 
+    margin-right: auto;
+    pointer-events: auto;
+    border-radius: 0;
+    overflow: hidden;
+    filter: drop-shadow(3px 5px 5px rgba($black, .5));
+    background-color: $white;
+    padding: 30px;
+  }
+
+  .decoration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    margin: 0;
+    transform: rotate(90deg) translateY(-100%);
+    transform-origin: 0 0;
+    font-size: 140px; 
+    pointer-events: none;
+    opacity: .08;
+    line-height: .9; 
+    letter-spacing: 15.1px;
+  } 
+  
+  .img-responsive {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .rd-mailform {
+    .btn {
+      width: 100%;
+      height: 60px;
+    }
+  }
+
+  button.close {
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    z-index: 10000;
+    transition: .33s all ease;
+    cursor: pointer;
+    font-size: 0;
+    line-height: 1;
+    color: $gray-800;
+    opacity: 1;
+    text-shadow: none;
+
+    &::before {
+      display: block;
+      content: '\f69a';
+      font-family: $mdi;
+      font-weight: 400;
+      font-size: 19px;
+      line-height: inherit;
+      pointer-events: none;
+    }
+
+    &:hover {
+      color: $primary;
+    }
+  }
+
+  * + .rd-mailform {
+    margin-top: 30px;
+  }
+
+  &-details {
+    
+    .modal-dialog__inner {
+      max-width: 950px;
+      text-align: center;
+      overflow: hidden;
+      background-color: $white;
+      padding-top: 50px;
+
+      button.close {
+        top: 15px;
+      }
+    }
+    .modal-dialog__content-inner {
+      &:nth-child(2) {
+        padding: 30px 15px;
+      }
+    }
+  }
+  
+  // Medium ≥768px
+  @include media-breakpoint-up(md) {
+    min-height: calc(100vh - 60px);
+    .modal-dialog__inner {
+      //padding: 30px 30px 30px;
+    }
+
+    &-details {
+      width: 100%;
+      text-align: center;
+
+      ul { margin: 0; }
+      .modal-dialog__inner {
+        padding: 0;
+        text-align: left;
+      }
+
+      .modal-dialog__content {
+        display: flex;
+      }
+      .modal-dialog__content-inner {
+        flex-grow: 1;
+        flex-shrink: 0;
+        width: 65%;
+
+        &:nth-child(2) {
+          padding: 43px 30px;
+          flex-shrink: 1;
+        }
+      }
+    }
+
+    .d-flex {
+      display: flex;
+      align-items: center;
+    }
+
+    .justify-content-between {
+      justify-content: space-between;
+    } 
+  }
+}
+
+.ie-10,
+.ie-11 {
+  .modal-dialog_custom {
+    display: block;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-align: center;
+
+    > * {
+      display: inline-block;
+      vertical-align: middle;
+      white-space: normal;
+    }
+
+    &:after {
+      content: '';
+      display: inline-block;
+      vertical-align: middle;
+      min-height: inherit;
+      width: 0;
+    }
+  }
+}
+
+
+// scoop corners
+@mixin corners($shape,$shapeTop, $size, $color) {
+
+  $n1: $size+px;
+  $n2: ($size)*2+px;
+  $n3: $size+1+px;
+  $pn: 0%;
+  @if ($size <= 10) { $pn: 6%; }
+  @elseif ($size <= 15) { $pn: 5%; }
+  @elseif ($size <= 20) { $pn: 4%; }
+  @elseif ($size <= 40) { $pn: 3%; }
+  @elseif ($size <= 50) { $pn: 2%; }
+  @elseif ($size <= 60) { $pn: 1%; }
+  $pd-scoop: 64%+$pn;
+
+  @if ($shape == "bevel") {
+    background: $color;
+    background:
+        linear-gradient(to right , $color 0, $color 100%) no-repeat top center,
+        linear-gradient(to bottom, $color 0, $color 100%) no-repeat center left,
+        linear-gradient(135deg,  transparent 49%, $color 50% ) no-repeat top left,
+        linear-gradient(-135deg, transparent 47%, $color 48% ) no-repeat top right,
+        linear-gradient(45deg,   transparent 47%, $color 48% ) no-repeat bottom left,
+        linear-gradient(-45deg,  transparent 46%, $color 47% ) no-repeat bottom right;
+    background-size: calc(100% - #{$n2}) 100%, 100% calc(100% - #{$n2}), $n3 $n3, $n3 $n3, $n3 $n3, $n3 $n3;
+  }
+
+  @if ($shape == "scoop") {
+    $t-t: t t; // compiler bug hack
+    $t-b: t b; // compiler bug hack
+    background: $color;
+    @if ($shapeTop == "top"){
+      background:
+          linear-gradient(to right , $color 0, $color 100%) no-repeat top center,
+          linear-gradient(to bottom, $color 0, $color 100%) no-repeat center left,
+          radial-gradient(a+$t-t+op left,     $color 64%, $color $pd-scoop ) no-repeat top left,
+          radial-gradient(a+$t-t+op right,    $color 64%, $color $pd-scoop ) no-repeat top right,
+          radial-gradient(a+$t-b+ottom left,  transparent 64%, $color $pd-scoop ) no-repeat bottom left,
+          radial-gradient(a+$t-b+ottom right, transparent 64%, $color $pd-scoop ) no-repeat bottom right;
+    }
+    @if ($shapeTop == "bottom"){
+      background:
+          linear-gradient(to right , $color 0, $color 100%) no-repeat top center,
+          linear-gradient(to bottom, $color 0, $color 100%) no-repeat center left,
+          radial-gradient(a+$t-t+op left,     transparent 64%, $color $pd-scoop ) no-repeat top left,
+          radial-gradient(a+$t-t+op right,    transparent 64%, $color $pd-scoop ) no-repeat top right,
+          radial-gradient(a+$t-b+ottom left,  $color 64%, $color $pd-scoop ) no-repeat bottom left,
+          radial-gradient(a+$t-b+ottom right, $color 64%, $color $pd-scoop ) no-repeat bottom right;
+    }
+
+    background-size: calc(100% - #{$n2}) 100%, 100% calc(100% - #{$n2}), $n3 $n3, $n3 $n3, $n3 $n3, $n3 $n3;
+  }
+
+  @if ($shape == "notch") {
+    background: $color;
+    background:
+        linear-gradient(to right , $color 0, $color 100%) no-repeat top center,
+        linear-gradient(to bottom, $color 0, $color 100%) no-repeat center left;
+    background-size: calc(100% - #{$n2}) 100%, 100% calc(100% - #{$n2});
+  }
+
+}
+
+.corner-1 {
+  border-radius: 8px 8px 0 0;
+  padding: 30px;
+  @include corners('scoop', 'top', 15, $white);
+}
+.corner-2 {
+  border-radius: 0 0 8px 8px;
+  padding: 45px 30px;
+  @include corners('scoop', 'bottom', 15, $white);
+}

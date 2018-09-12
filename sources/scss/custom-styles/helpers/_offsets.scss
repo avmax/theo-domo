@@ -1,0 +1,189 @@
+/*
+*
+* Offsets
+*/
+
+// Elements offset
+* + p {
+	margin-top: 15px;
+}
+* + h1 {
+	margin-top: 12px;
+}
+* + h4 {
+	margin-top: 12px;
+}
+* + h3 {
+	margin-top: 20px;
+}
+* + h5 {
+	margin-top: 20px;
+}
+* + h6 {
+	margin-top: 20px;
+}
+
+// Headings
+h1 + h3 {
+	margin-top: 30px;
+}
+h1 + h2 {
+	margin-top: 25px;
+}
+
+// Headings + Paragraph
+h2 + p,
+h4 + p,
+.heading-2 + p {
+	margin-top: 12px;
+}
+
+// Paragraph + Headings
+p + h2,
+p + .heading-2 {
+	margin-top: 15px;
+}
+
+// Tags + Tags
+p + p {
+	margin-top: 12px;
+}
+
+img + p {
+	margin-top: 15px;
+}
+
+h3 + img {
+	margin-top: 42px;
+}
+
+.group-md + h1 {
+	margin-top: 40px;
+}
+h6 + .group-sm {
+	margin-top: 40px;
+} 
+
+// Classes
+* + .row {
+	margin-top: 30px;
+}
+
+* + .big {
+	margin-top: 20px;
+}
+
+* + .text-block {
+	margin-top: 30px;
+}
+
+* + .button {
+	margin-top: 30px;
+}
+* + .button-sm {
+	margin-top: 40px;
+}
+
+* + .custom-button-group {
+	margin-top: 20px;
+}
+
+// Classes + Tags
+.row + h3,
+.row + .heading-3 {
+	margin-top: 80px;
+}
+
+.group-xl + hr {
+	margin-top: 45px;
+}
+
+// Classes + Classes
+.container + .container {
+	margin-top: 35px;
+}
+.isotope-wrap + .button {
+	margin-top: 40px;
+}
+
+.row + .row {
+	margin-top: 35px;
+}
+
+// Medium ≥768px
+@include media-breakpoint-up(md) {
+	* + h1 {
+		margin-top: 15px;
+	}
+	* + .row {
+		margin-top: 55px;
+	}
+	
+	h2 + p,
+	h4 + p {
+		margin-top: 25px;
+	}
+	
+	.subtitle + h2, 
+	.subtitle + h4 {
+		margin-top: 22px;
+	}
+	h6 + .group-sm {
+		margin-top: 50px;
+	}
+}
+
+// Media offsets
+@include media-breakpoint-up(xl) {
+	* + h1 {
+		margin-top: 25px;
+	}
+	* + .rd-form {
+		margin-top: 30px;
+	}
+
+	h3 + .group-sm {
+		margin-top: 45px;
+	}
+
+	.container + .container {
+		margin-top: 60px;
+	}
+	.row + .row {
+		margin-top: 50px;
+	}
+	
+	.isotope-wrap + .row {
+		margin-top: 80px;
+	}
+	.isotope-wrap + .button {
+		margin-top: 60px;
+	}
+}
+
+// Range spacing
+.row-0 {
+	@include grid-offset(0px);
+}
+
+.row-15 {
+	@include grid-offset(15px);
+}
+
+.row-20 {
+	@include grid-offset(20px);
+}
+
+.row-30 {
+	@include grid-offset(30px);
+}
+
+.row-50 {
+	@include grid-offset(50px);
+}
+
+@include media-breakpoint-up(lg) {
+	.row-md-30 {
+		@include grid-offset(30px);
+	}
+}

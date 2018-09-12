@@ -1,0 +1,214 @@
+/**
+* Twitter
+*/
+
+.twitter {
+  > h6 {
+    padding: 10px 0;
+  }
+}
+
+.twitter-feed {
+  max-width: 576px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  background-color: $white;
+  transition: .3s ease-out all;
+  border: 1px solid $gray-100;
+  
+  .twitter-feed-name {
+    font-weight: 400;
+    color: $gray-800;
+    > * {
+      font-weight: inherit;
+      color: inherit;
+      letter-spacing: 0;
+    }
+  }
+  
+  .bg-gray-darker &,
+  .bg-gray-lighter &,
+  .bg-image & {
+    background-color: $white;
+    .twitter-feed-name {
+      color: $gray-800;
+    }
+  }
+  
+  &:hover { box-shadow: 0 9px 21px rgba($gray-800, .08); }
+}
+
+.twitter-feed-header { padding: 30px 20px 20px; }
+.twitter-feed-body { padding: 0 20px 20px; }
+
+.twitter-feed-avatar {
+  width: 70px;
+  height: 70px;
+}
+
+.twitter-feed-name-tag,
+.twitter-feed-content,
+.twitter-feed-footer {
+  letter-spacing: 0;
+}
+
+.twitter-feed-name-tag {
+  color: $gray-400;
+  a {
+    &, &:focus, &:active { color: inherit; }
+    &:hover { color: $primary; }
+  }
+}
+
+.twitter-feed-content {
+  color: $gray-800;
+  a {
+    &, &:focus, &:active { color: $primary; }
+    &:hover { color: $gray-800; }
+  }
+}
+
+.twitter-feed-footer {
+  padding: 23px 30px 30px;
+  time { color: $gray-400; }
+}
+
+.twitter-image {
+  max-width: 100%;
+}
+
+* + .twitter-feed { margin-top: 30px; }
+
+* + .twitter-feed-content { margin-top: 29px; }
+
+.twitter-feed-header + .twitter-feed-body { margin-top: 10px; }
+
+.twitter-feed-header + .twitter-feed-body:empty { margin-top: 0; }
+
+.twitter-feed-body:empty + .twitter-feed-footer { padding-top: 0; }
+
+// Medium ≥768px
+@include media-breakpoint-up(md) {
+  * + .twitter { margin-top: 30px; } 
+}
+
+/**
+* Twitter Feed minimal
+*/
+.twitter-feed-minimal {
+  max-width: 334px;
+  .twitter-icon {
+    color: #00bbf5;
+  }
+  time {
+    display: block;
+    color: $gray-800;
+  }
+  * + time { margin-top: 10px; }
+}
+
+.twitter-feed-minimal-content {
+  color: $gray-800;
+  letter-spacing: 0;
+  a {
+    color: $primary;
+    &:hover {
+      color: $gray-800;
+    }
+  }
+}
+
+* + .twitter-feed-minimal { margin-top: 30px; }
+
+// Medium ≥576px
+@include media-breakpoint-up(sm) {
+  * + .twitter-feed-minimal { margin-top: 25px; } 
+}
+
+/**
+* Twitter Feed Block
+*/
+.twitter-feed-block {
+  max-width: 770px;
+  background-color: $white; 
+  
+  .twitter-feed-header { padding: 30px; }
+  .twitter-feed-name {
+    letter-spacing: 0;
+    > * { letter-spacing: inherit; }
+    h5 {
+      font-size: 18px;
+      font-family: $font-family-base;
+      font-weight: 700;
+      color: $gray-800;
+    }
+    time {
+      color: $gray-800;
+      font-weight: 300;
+    }
+  }
+ // Medium ≥576px
+ @include media-breakpoint-up(sm) {
+   .twitter-feed-name {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+   } 
+ }
+  * + .twitter-feed-content { margin-top: 10px; }
+}
+
+.twitter-feed-block + .twitter-feed-block { margin-top: 10px; }
+
+/**
+* Twitter Center
+*/
+.twitter-feed-centered {
+  max-width: 570px;
+  margin-left: auto;
+  margin-right: auto;
+  
+  .bg-gray-darker &,
+  .bg-image & {
+    .twitter-feed-name-tag {
+      color: $white;
+    }
+  }
+  
+  .twitter-feed-avatar { border-radius: 1px solid $gray-100; }
+  .twitter-feed-name-tag,
+  time { letter-spacing: 0; }
+  .twitter-feed-name-tag {
+    color: $gray-800;
+    font-weight: 700;
+  }
+  time {
+    display: block;
+    color: $gray-400; 
+  }
+  * + .twitter-feed-name-tag { margin-top: 20px; }
+  * + time { margin-top: 20px; }
+  * + .twitter-feed-minimal-content { margin-top: 30px; }
+}
+
+
+// Extra large ≥1200px
+@include media-breakpoint-up(xl) {
+  .twitter-feed-minimal-content {
+    font-size: 24px;
+  } 
+} 
+
+// twitter column
+.twitter-column {
+  position: relative;
+  padding-top: 40px;
+  
+  > h6 {
+    position: absolute;
+    top: 0;
+    left: 15px;
+    margin-top: 0;
+  }
+}

@@ -1,0 +1,36 @@
+/*
+*
+* Dividers
+*/
+
+hr {
+	margin-top: 0;
+	margin-bottom: 0;
+	border-top: $hr-border-width solid $hr-border-color;
+}
+
+.divider {
+	font-size: 0;
+	line-height: 0;
+
+	&::after {
+		content: '';
+		display: inline-block;
+		width: 60px;
+		height: 3px;
+		background-color: $primary;
+	}
+}
+
+* + .divider {
+	margin-top: 35px;
+}
+.divider + * {
+	margin-top: 28px;
+}
+
+.divider-sm {
+	&::after {
+		width: 88px;
+	}
+}

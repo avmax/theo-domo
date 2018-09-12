@@ -1,0 +1,103 @@
+/*
+*
+* Footers
+*/
+
+//
+// Footer Classic
+//
+
+.footer-classic {
+	padding: 50px 0 0;
+	background: $gray-100;
+	
+	.rights {
+		color: rgba($white, .5);
+	}
+	
+	p {
+		line-height: 22px;
+		letter-spacing: 0.025em;
+	}
+	
+	a {
+		@include link($white, $white);
+	}
+	[href*='mailto:'],
+	[href*='tel:'] {
+		&:hover{
+			text-decoration: underline;
+		}
+	}
+	h5 {
+		font-weight: 600;
+	}
+
+	.contact-list {
+		dt {
+			color: rgba($white, .5);
+		}
+	}
+	
+	* + p {
+		margin-top: 25px;
+	}
+	
+	// Extra large ≥1200px
+	@include media-breakpoint-up(xl) {
+		padding: 75px 0 0; 
+		
+		* + .row {
+			margin-top: 65px;
+		}
+	} 
+}
+
+// footer default
+.social-container {
+	text-align: center;
+	
+	.col {
+		border: 1px solid rgba($white, .1);
+	}
+}
+
+.social-inner {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	padding: 23px;
+
+	font: 900 13px/1 $font-family-base;
+	text-transform: uppercase;
+	color: rgba($white, .5);
+
+	.icon {
+		color: $white;
+		padding: 8px;
+	}
+	
+	// Large ≥992px
+	@include media-breakpoint-up(lg) {
+		display: inline-block; 
+	}
+	
+	&:hover{
+		color: inherit;
+		background-color: rgba(71, 78, 102, .18);;
+	}
+}
+
+// footer minimal 
+.footer-minimal {
+	padding-top: 65px;
+	padding-bottom: 65px;
+	text-align: center;
+	background-color: #394254;
+	
+	.rights {
+		font-size: 16px;
+		color:$white;
+	}
+}

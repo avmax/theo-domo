@@ -1,0 +1,238 @@
+/*
+*
+* Lists
+*/
+
+// Vertical list
+.list {
+	> li + li {
+		margin-top: 10px;
+	}
+}
+
+.list-xs > li + li {
+	margin-top: 5px;
+}
+
+.list-sm > li + li {
+	margin-top: 10px;
+}
+
+.list-md > li + li {
+	margin-top: 18px;
+}
+
+.list-lg > li + li {
+	margin-top: 25px;
+}
+
+@include media-breakpoint-up(md) {
+	.list-xl > li + li {
+		margin-top: 60px;
+	}
+}
+
+//
+// List inline
+//
+.list-inline {
+	> li {
+		display: inline-block;
+	}
+}
+
+html {
+	.list-inline-md {
+		@include spacing(20px, 8px);
+
+		@include media-breakpoint-up(lg) {
+			@include spacingX(30px);
+		}
+	}
+}
+
+//
+// List terms
+//
+.list-terms {
+	dt + dd {
+		margin-top: 5px;
+	}
+	dd + dt {
+		margin-top: 25px;
+	}
+}
+
+* + .list-terms {
+	margin-top: 25px;
+}
+
+//
+// Index list
+//
+.index-list {
+	counter-reset: li;
+
+	> li {
+		.list-index-counter {
+			&:before {
+				content: counter(li, decimal-leading-zero);
+				counter-increment: li;
+			}
+		}
+	}
+}
+
+//
+// Marked list
+//
+.list-marked {
+	text-align: left;
+
+	> li {
+		position: relative;
+		padding-top: 8px;
+		padding-bottom: 8px;
+		padding-left: 27px;
+		&::before {
+			position: absolute;
+			display: inline-block;
+			left: 0;
+			min-width: 25px;
+			content: '\f14f';
+			font: 400 21px/1 $mdi;
+			color: $gray-800;
+		}
+	}
+}
+
+* + .list-marked {
+	margin-top: 15px;
+}
+
+p + .list-marked {
+	margin-top: 10px;
+}
+.list-marked-2 {
+	text-align: left;
+
+	> li {
+		position: relative;
+		padding-top: 8px;
+		padding-bottom: 8px;
+		padding-left: 35px;
+		&::before {
+			position: absolute;
+			display: inline-block;
+			left: 0;
+			min-width: 25px;
+			content: '\f222';
+			font: 400 24px/1 $mdi;
+			color: $primary;
+		}
+	}
+}
+
+* + .list-marked-2 {
+	margin-top: 30px;
+}
+
+p + .list-marked-2 {
+	margin-top: 30px;
+}
+
+//
+// Ordered List
+//
+.list-ordered {
+	counter-reset: li;
+	padding-left: 25px;
+	text-align: left;
+
+	> li {
+		position: relative;
+		padding-left: 25px;
+
+		&:before {
+			content: counter(li, decimal) '.';
+			counter-increment: li;
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: inline-block;
+			width: 15px;
+			color: $gray-400;
+		}
+	}
+
+	> li + li {
+		margin-top: 10px;
+	}
+}
+
+* + .list-ordered {
+	margin-top: 15px;
+}
+
+//
+// contact list
+//
+.contact-list {
+	dt {
+		font: 900 13px/1 $font-family-base;
+		text-transform: uppercase;
+		letter-spacing: 0.075em;
+	}
+	> * + * {
+		margin-top: 13px;
+	}
+}
+
+* + .contact-list {
+	margin-top: 18px;
+	// Medium ≥768px
+	@include media-breakpoint-up(md) {
+		margin-top: 39px;
+	}
+}
+
+//
+// nav list
+//
+.nav-list {
+	li {
+		padding-top: 5px;
+		padding-bottom: 5px;
+	}
+
+	li a {
+		&:before {
+			content: "\f14f";
+			font: 400 21px/1 $mdi;
+			color: $primary;
+			display: inline-block;
+			vertical-align: baseline;
+			margin-left: -28px;
+			margin-right: 7px;
+			opacity: 0;
+			visibility: hidden;
+			transition: .22s ease;
+		}
+		&:hover {
+			&:before {
+				margin-left: 0;
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+	}
+}
+
+* + .nav-list {
+	margin-top: 20px;
+	
+	// Medium ≥768px
+	@include media-breakpoint-up(md) {
+		margin-top: 30px;
+	}
+}

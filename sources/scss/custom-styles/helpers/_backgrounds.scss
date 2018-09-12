@@ -1,0 +1,153 @@
+/*
+*
+* Backgrounds
+*/
+
+.context-dark {
+	@extend %context-dark;
+}
+
+%context-dark {
+	color: rgba($white, .8);
+	#{headings()} {
+		color: $white;
+	}
+	
+	.subtitle {
+		span {
+			border-color: rgba($white, .26);
+		}
+	}
+
+	.ie-10 &,
+	.ie-11 &,
+	.ie-edge & {
+		.subtitle {
+			color: $white;
+		}
+	}
+
+	// Logo
+	.brand {
+		.brand-logo-dark {
+			display: none;
+		}
+		.brand-logo-light {
+			display: block;
+		}
+	}
+
+	.button-default-outline {
+		@include btn-variant($white, transparent, $white, $white-invariable, $primary, $primary);
+	}
+	
+	//form subscribe
+	.rd-form-inline {
+		.form-input {
+			background-color: rgba($white, .14);
+			border-color: rgba($white, .14);
+			color: $white;
+		}
+		.form-label {
+			color: $white;
+		}
+	}
+	
+	.form-validation {
+		color: lighten($form-feedback-invalid-color, 25%); 
+	}
+	
+	.owl-carousel {
+		.owl-prev,
+		.owl-next {
+			color: rgba($white, .5);
+		}
+	}
+}
+
+%context-light {
+	color: rgba($body-color, .9);
+	#{headings()} {
+		color: $headings-color;
+	}
+	// Logo
+	.brand {
+		.brand-logo-dark {
+			display: block;
+		}
+		.brand-logo-light {
+			display: none;
+		}
+	}
+}
+
+.context-light {
+	@extend %context-light;
+}
+
+/**
+* Light Backgrounds
+*/
+.bg-default {
+	@include bg-behaviour($body-bg);
+}
+
+.bg-gray-100 {
+	@extend %context-light;
+	@include bg-behaviour($gray-100);
+	
+	.subtitle {
+		> span {
+			border-color: #ddd;
+		}
+	}
+
+	.box-process {
+		background-color: $white;
+	}
+
+	.box-service-body {
+		color: rgba($body-color, .8);
+	}
+}
+
+/**
+* Dark Backgrounds
+*/
+.bg-gray-dark {
+	@extend %context-dark;
+	@include bg-behaviour($gray-700);
+}
+
+/** 
+* Accent Backgrounds
+*/
+.bg-primary {
+	@extend %context-dark;
+	& + & {
+		padding-top: 0;
+	}
+}
+
+.bg-gradient-gray-100 {
+	background: linear-gradient(to right, $gray-100, $white);
+}
+
+/**
+* Background Image
+*/
+
+[class*='bg-'] {
+	background-size: cover;
+	background-position: center center;
+}
+
+// Desktop only
+//
+html:not(.tablet):not(.mobile) {
+	.bg-fixed {
+		@include media-breakpoint-up(lg) {
+			background-attachment: fixed;
+		}
+	}
+}

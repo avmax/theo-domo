@@ -1,0 +1,67 @@
+/*
+*
+* Counter
+*/
+
+.counter {
+	font: 400 50px/1.5 $font-family-cursive;
+	opacity: .25;
+}
+
+.box-counter {
+	max-width: 210px;
+	text-align: left;
+	&__wrap {
+		display: flex;
+		align-items: flex-end;
+	}
+}
+
+.box-counter__title {
+	position: relative;
+	font-weight: 700;
+	padding-left: 30px;
+	
+	&:before{
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		height: 70px;
+		border-left: 1px solid $gray-200;
+		transform: rotate(15deg);
+		transform-origin: left bottom;
+	  content: "";
+	  display: inline-block;
+	}
+}
+
+// Extra large ≥1200px
+@include media-breakpoint-up(xl) {
+	.counter {
+		font-size: 80px;
+	}
+}
+
+// variant 2
+.box-counter_var-2 {
+	
+	.box-counter__title {
+		font-size: 16px;
+		color: $gray-800;
+		padding-left: 0;
+		&:before{
+		  content: none;
+		}
+	}
+	.box-counter__wrap {
+		span {
+			font-size: 40px;
+			font-family: $font-family-cursive;;
+			color: $primary;
+		}
+	}
+	.counter {
+		line-height: .9;
+	}
+	
+}

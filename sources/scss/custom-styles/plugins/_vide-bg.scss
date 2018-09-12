@@ -1,0 +1,37 @@
+//
+// Video BG
+// --------------------------------------------------
+// Custom Styles
+
+.vide_bg {
+  width: 100%;
+
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.video-bg-overlay {
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba($gray-800, .37);   
+    z-index: 1;
+  }
+}
+
+.video-overlay {
+  position: relative;
+
+  &:before {
+    background: linear-gradient(to bottom, #106bb8, #010c5f);
+    opacity: .72;
+  }
+}

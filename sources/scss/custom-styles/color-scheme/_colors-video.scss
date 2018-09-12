@@ -1,0 +1,13 @@
+//
+// Accent Colors
+//
+
+$primary: #f8667e;
+$primary-darken: #26435b;
+$primary-gradient: linear-gradient(to right, #909090, #909090);
+$primary-gradient-to-bottom: linear-gradient(to bottom, $primary-darken, $primary-darken);
+
+.label-popular {
+	background: #fbde55;
+}
+ 
