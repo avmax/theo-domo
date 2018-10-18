@@ -55,6 +55,12 @@ gulp.task('php', () => {
       .pipe(gulp.dest('./dist/bat'))
 });
 
+gulp.task('copy', () => {
+    gulp.src('./src/robots.txt')
+      .pipe(gulp.dest('./dist'))
+});
+
+
 gulp.task('server', () => {
     browserSync.init({
         server: {
@@ -79,5 +85,5 @@ gulp.task('watch', () => {
     gulp.watch('./src/fonts/**/*.*', gulpsync.sync(['fonts', 'reload']));
 });
 
-gulp.task('build', ['css', 'js', 'html', 'php', 'images', 'fonts']);
+gulp.task('build', ['css', 'js', 'html', 'php', 'copy', 'images', 'fonts']);
 gulp.task('dev', gulpsync.sync(['build', 'server', 'watch']));

@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  nginx:
+    image: nginx:mainline
+    ports:
+      - "80:80"
+    restart: "no"

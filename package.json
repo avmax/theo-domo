@@ -3,7 +3,9 @@
   "scripts": {
     "build": "rm -rf ./dist && gulp build",
     "build:prod": "rm -rf ./dist && NODE_ENV='prod' gulp build",
-    "dev": "rm -rf ./dist && gulp dev"
+    "dev": "rm -rf ./dist && gulp dev",
+    "deploy": "scp -r dist 35.204.70.157:~/theo-domo.com",
+    "prod": "npm run build:prod && npm run deploy"
   },
   "devDependencies": {
     "browser-sync": "^2.24.7",
