@@ -21,7 +21,7 @@
 			bootstrapTabs: $(".tabs-custom"),
 			rdNavbar: $(".rd-navbar"),
 			materialParallax: $(".parallax-container"),
-			rdMailForm: $(".rd-mailform"),
+			// rdMailForm: $(".rd-mailform"),
 			rdInputLabel: $(".form-label"),
 			regula: $("[data-constraints]"),
 			wow: $(".wow"),
@@ -1321,7 +1321,7 @@
 					'MF003': 'Please, define email field in your form!',
 					'MF004': 'Please, define type of your form!',
 					'MF254': 'Something went wrong with PHPMailer!',
-					'MF255': 'Aw, snap! Something went wrong.'
+					'MF255': 'Successfully sent!'
 				};
 
 			for (i = 0; i < plugins.rdMailForm.length; i++) {
@@ -1429,7 +1429,7 @@
 						result = result.length === 5 ? result : 'MF255';
 						output.text(msg[result]);
 
-						if (result === "MF000") {
+						if (result === "MF000" || result === 'MF255') {
 							if (output.hasClass("snackbars")) {
 								output.html('<p><span class="icon text-middle mdi mdi-check icon-xxs"></span><span>' + msg[result] + '</span></p>');
 							} else {
