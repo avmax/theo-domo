@@ -1,5 +1,9 @@
 {
   "author": "avmax.web@gmail.com",
+  "engines" : { 
+    "npm" : "^8.17.0",
+    "node" : "^6.13.4"
+  },
   "scripts": {
     "build": "rm -rf ./dist && gulp build",
     "build:prod": "rm -rf ./dist && NODE_ENV='prod' gulp build",
